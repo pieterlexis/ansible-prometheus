@@ -38,6 +38,7 @@
         src: "{{ prometheus_tarball_url }}"
         dest: "{{ prometheus_install_path }}"
         copy: no
+        creates: "{{ prometheus_subdir }}/prometheus"
       when: "{{ not ansible_check_mode }}"
 
   when: prometheus_version != "git"
@@ -152,4 +153,3 @@
   when: prometheus_conf_main is defined
   notify:
     - reload prometheus
-
