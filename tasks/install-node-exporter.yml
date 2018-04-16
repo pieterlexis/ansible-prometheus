@@ -15,12 +15,12 @@
 
     - name: set download url for versions >= 0.13.0
       set_fact:
-        prometheus_node_exporter_tarball_url: "https://github.com/prometheus/node_exporter/releases/download/v{{ prometheus_node_exporter_version }}/node_exporter-{{ prometheus_node_exporter_version }}.{{ prometheus_platform_suffix }}.tar.gz"
+        prometheus_node_exporter_tarball_url: "{{ prometheus_node_exporter_url }}/node_exporter-{{ prometheus_node_exporter_version }}.{{ prometheus_platform_suffix }}.tar.gz"
       when: prometheus_node_exporter_version | version_compare('0.13.0', '>=')
 
     - name: set download url for versions < 0.13.0 (OBSOLETE!)
       set_fact:
-        prometheus_node_exporter_tarball_url: "https://github.com/prometheus/node_exporter/releases/download/{{ prometheus_node_exporter_version }}/node_exporter-{{ prometheus_node_exporter_version }}.{{ prometheus_platform_suffix }}.tar.gz"
+        prometheus_node_exporter_tarball_url: "{{ prometheus_node_exporter_url }}/node_exporter-{{ prometheus_node_exporter_version }}.{{ prometheus_platform_suffix }}.tar.gz"
       when: prometheus_node_exporter_version | version_compare('0.13.0', '<')
 
     - name: set daemon dir for versions >= 0.12
