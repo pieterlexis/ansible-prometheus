@@ -16,9 +16,11 @@ prometheus_group:  prometheus
 
 prometheus_version:                 1.5.0
 prometheus_node_exporter_version:   0.13.0
+prometheus_node_exporter_url: https://github.com/prometheus/node_exporter/releases/download/v{{ prometheus_node_exporter_version }}
 prometheus_alertmanager_version:    0.5.1
 
 gosu_version: "1.10"
+gosu_url: "https://github.com/tianon/gosu/releases/download/{{ gosu_version }}"
 prometheus_go_version:   1.6.2
 
 

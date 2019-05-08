@@ -40,6 +40,7 @@
         owner: "{{ prometheus_user }}"
         group: "{{ prometheus_group }}"
         mode: "go-w"
+        creates: "{{ prometheus_alertmanager_daemon_dir/alertmanager }}"
 
   when: prometheus_alertmanager_version != "git"
 
